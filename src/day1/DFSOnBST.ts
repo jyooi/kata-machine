@@ -1,15 +1,24 @@
-function searchNode(curr: BinaryNode<number>, needle: number): boolean {
+function searchNode(curr: BinaryNode<number> | null, needle: number): boolean {
     // define base case
+
+    // base case
     if (!curr) return false;
 
     if (curr.value === needle) return true;
 
-    if (curr.value > needle && curr.left) {
-        return searchNode(curr.left, needle);
+    // base case
+
+    //recursion
+
+    //pre
+    // recurse
+    //post
+    if (curr.value < needle) {
+        return searchNode(curr.right, needle);
     }
 
-    if (curr.value < needle && curr.right) {
-        return searchNode(curr.right, needle);
+    if (curr.value > needle) {
+        return searchNode(curr.left, needle);
     }
 
     return false;
